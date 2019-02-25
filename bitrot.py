@@ -1,23 +1,20 @@
 from pathlib import Path
 import random
-import subprocess
+from playsound import playsound
 
-count = 240
+count = 0
 
 while True:
- 
- audio_file = "test.mp3"
- return_code = subprocess.call(["afplay", audio_file])
-
+    
+ playsound('test.mp3')
  print("audio played")
-
- for x in range(24):
-  file1 = Path("test.mp3")
-  data = bytearray(file1.read_bytes())
+ 
+ audiofile = Path("test.mp3")
+ data = bytearray(audiofile.read_bytes())
+ for x in range(100):
   flipbyte = random.randrange(0, len(data))
   data[flipbyte] ^= 1 << random.randrange(0, 8)
-  file1.write_bytes(data)
-  print(x)
+ audiofile.write_bytes(data)
 
  print("audio corrupted")
 
