@@ -2,7 +2,7 @@ from pathlib import Path
 import random
 import subprocess
 
-count = 30
+count = 240
 
 while True:
  
@@ -11,7 +11,7 @@ while True:
 
  print("audio played")
 
- for x in range(8):
+ for x in range(24):
   file1 = Path("test.mp3")
   data = bytearray(file1.read_bytes())
   flipbyte = random.randrange(0, len(data))
